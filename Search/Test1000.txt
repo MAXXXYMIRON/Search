@@ -1,0 +1,21 @@
+Wait))
+SequenceSearch - -1 for (10000 elements)
+Index: 4100
+0c
+
+
+
+Wait))
+BinSearch - -1 for (10000 elements)
+Index: 5179
+0c
+
+
+
+Wait))
+AllocSearch - -1 for (10000 elements)
+Index: 5182
+0c
+
+
+

@@ -1,0 +1,19 @@
+12   5   2   5   23   65   2   0   2   32   
+SequenceSearch
+Search: 12Index: 0
+Search: 32Index: 9
+Search: -1Index: -1
+BinSearch
+0   2   2   2   5   5   12   23   32   65   
+Search - 0Index - 0
+Search - 65Index - 9
+Search - -1Index - -1
+AllocSearch
+0   2   2   2   5   5   12   23   32   65   
+Search - 12Index - 6
+Search - 23Index - 7
+Search - -1Index - -33686019
+
+
+
+

@@ -4,17 +4,8 @@
 #include<ctime>
 #include <stdio.h>
 #include <time.h>
+#include <fstream>
 using namespace std;
-
-template<class t>
-void out(t arr[], int len)
-{
-	for (int i = 0; i < len; i++)
-	{
-		std::cout << arr[i] << "   ";
-	}
-	std::cout << std::endl;
-}
 
 template<class t>
 void Rand(t arr[], int len)
@@ -25,89 +16,133 @@ void Rand(t arr[], int len)
 	}
 }
 
-void Tests(int Length)
+void Tests(int Length, string nameFile)
 {
 	int* Test = new int[Length];
 
+	ofstream file;
+	file.open(nameFile);
 
-	cout << "Wait))" << endl;
+	file << "Wait))" << "\n";
 	Rand(Test, Length);
-	cout << "SequenceSearch - -1 for (" << Length << " elements)" << endl;
+	file << "SequenceSearch - -1 for (" << Length << " elements)" << "\n";
 	unsigned int start = clock();
-	cout << "Index: " << SeqSearch(Test, Length, -1) << endl;
+	file << "Index: " << SeqSearch(Test, Length, -1) << "\n";
 	unsigned int end = clock();
-	cout << (double)(end - start) / CLOCKS_PER_SEC << 'c';
-	cout << endl << endl << endl << endl;
+	file << (double)(end - start) / CLOCKS_PER_SEC << 'c';
+	file << "\n" << "\n" << "\n" << "\n";
 
-	cout << "Wait))" << endl;
+	file << "Wait))" << "\n";
 	QuickSort(Test, 0, Length - 1);
-	cout << "BinSearch - -1 for (" << Length << " elements)" << endl;
+	file << "BinSearch - -1 for (" << Length << " elements)" << "\n";
 	start = clock();
-	cout << "Index: " << BinSearch(Test, 0, Length - 1, -1) << endl;
+	file << "Index: " << BinSearch(Test, 0, Length - 1, -1) << "\n";
 	end = clock();
-	cout << (double)(end - start) / CLOCKS_PER_SEC << 'c';
-	cout << endl << endl << endl << endl;
+	file << (double)(end - start) / CLOCKS_PER_SEC << 'c';
+	file << "\n" << "\n" << "\n" << "\n";
 
-	cout << "Wait))" << endl;
-	cout << "AllocSearch - -1 for (" << Length << " elements)" << endl;
+	file << "Wait))" << "\n";
+	file << "AllocSearch - -1 for (" << Length << " elements)" << "\n";
 	start = clock();
-	cout << "Index: " << AllocSearch(Test, Length, Test[0], Test[Length - 1], -1) << endl;
+	file << "Index: " << AllocSearch(Test, Length, Test[0], Test[Length - 1], -1) << "\n";
 	end = clock();
-	cout << (double)(end - start) / CLOCKS_PER_SEC << 'c';
-	cout << endl << endl << endl << endl;
+	file << (double)(end - start) / CLOCKS_PER_SEC << 'c';
+	file << "\n" << "\n" << "\n" << "\n";
 }
 
 
 
 int main()
 {
-	int Length = 10;
+	int len = 10;
 	int A[] = { 12, 5, 2, 5, 23, 65, 2, 0, 2, 32 };
 	string searchStr;
 	int search = 0;
 
-	cout << "SequenceSearch" << endl;
-	out(A, Length);
+	ofstream file;
+	file.open("Tests.txt");
+
+	for (int i = 0; i < len; i++)
+	{
+		file << A[i] << "   ";
+		cout << A[i] << "   ";
+	}
+	file << "\n";
+	cout << "\n";
+
+	file << "SequenceSearch" << "\n";
+	cout << "SequenceSearch" << "\n";
 	while (searchStr != "-1")
 	{
+		file << "Search: ";
 		cout << "Search: ";
 		cin >> searchStr;
+		file << searchStr;
 		search = stoi(searchStr);
-		cout << "Index: " << SeqSearch(A, Length, search) << endl;
+		file << "Index: " << SeqSearch(A, len, search) << "\n";
+		cout << "Index: " << SeqSearch(A, len, search) << "\n";
 
-		cout << "Stop: -1" << endl;
+		cout << "Stop: -1" << "\n";
 	}
 
-	cout << "BinSearch" << endl;
-	QuickSort(A, 0, Length - 1);
-	out(A, Length);
+
+
+	file << "BinSearch" << "\n";
+	cout << "BinSearch" << "\n";
+	QuickSort(A, 0, len - 1);
+	for (int i = 0; i < len; i++)
+	{
+		file << A[i] << "   ";
+		cout << A[i] << "   ";
+	}
+	file << "\n";
+	cout << "\n";
 	searchStr = "";
 	while (searchStr != "-1")
 	{
+		file << "Search - ";
 		cout << "Search - ";
 		cin >> searchStr;
+		file << searchStr;
 		search = stoi(searchStr);
-		cout << "Index - " << BinSearch(A, 0, Length - 1, search) << endl;
+		file << "Index - " << BinSearch(A, 0, len - 1, search) << "\n";
+		cout << "Index - " << BinSearch(A, 0, len - 1, search) << "\n";
 
-		cout << "Stop: -1" << endl;
+		cout << "Stop: -1" << "\n";
 	}
 
-	cout << "AllocSearch" << endl;
-	out(A, Length);
+
+
+	file << "AllocSearch" << "\n";
+	cout << "AllocSearch" << "\n";
+	for (int i = 0; i < len; i++)
+	{
+		file << A[i] << "   ";
+		cout << A[i] << "   ";
+	}
+	file << "\n";
+	cout << "\n";
 	searchStr = "";
 	while (searchStr != "-1")
 	{
+		file << "Search - ";
 		cout << "Search - ";
 		cin >> searchStr;
+		file << searchStr;
 		search = stoi(searchStr);
-		cout << "Index - " << AllocSearch(A, Length, A[0], A[Length - 1], search) << endl;
+		file << "Index - " << AllocSearch(A, len, A[0], A[len - 1], search) << "\n";
+		cout << "Index - " << AllocSearch(A, len, A[0], A[len - 1], search) << "\n";
 
-		cout << "Stop: -1" << endl;
+		cout << "Stop: -1" << "\n";
 	}
 
-	cout << endl << endl << endl << endl;
+	file << "\n" << "\n" << "\n" << "\n";
 
-	Tests(10000);
+
+
+	//Тестирование 10000 элементов заданных рандомно 
+	//со снятием временных показателей
+	Tests(10000, "Test1000.txt");
 
 	system("pause");
 	return 0;

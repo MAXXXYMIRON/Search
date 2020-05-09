@@ -1,6 +1,6 @@
 ﻿  Main.cpp
-c:\users\maxxxymiron\desktop\.пары\саод\практика\search\search\search\main.cpp(22): warning C4018: <: несоответствие типов со знаком и без знака
-  c:\users\maxxxymiron\desktop\.пары\саод\практика\search\search\search\main.cpp(34): note: выполняется компиляция ссылки на экземпляр шаблон функции "void Rand<int>(t [],int)"
+c:\users\maxxxymiron\desktop\.пары\саод\практика\search\search\search\main.cpp(13): warning C4018: <: несоответствие типов со знаком и без знака
+  c:\users\maxxxymiron\desktop\.пары\саод\практика\search\search\search\main.cpp(27): note: выполняется компиляция ссылки на экземпляр шаблон функции "void Rand<int>(t [],int)"
           with
           [
               t=int
